@@ -22,8 +22,12 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow Meatly to access your camera so you can take photos to post.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Meatly to access your camera roll so you can post your own photos.</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

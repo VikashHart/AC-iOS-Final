@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        //Feed View Controller
+        let feedViewController = FeedViewController()
+        let feedViewNavCon = UINavigationController(rootViewController: feedViewController)
+        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "chickenleg"), tag: 0)
+        
+        //Profile View Controller
+        let uploadViewController = NewPostViewController()
+        let uploadViewNavCon = UINavigationController(rootViewController: uploadViewController)
+        uploadViewController.tabBarItem = UITabBarItem(title: "Upload", image: #imageLiteral(resourceName: "upload"), tag: 1)
+        
+        //Tab Bar Controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [feedViewNavCon, uploadViewNavCon]
+        
+        //Window setup
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
